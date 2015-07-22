@@ -1,12 +1,11 @@
 #!/usr/bin/env python
 
 import sys
-import requests
+import urllib
 import time
 
 def url_status(url):
-    response = requests.get(url, timeout=1)
-    return response.status_code
+    return urllib.urlopen(url).getcode()
 
 def test_url(url, timeout=60, interval=5):
     elapsed = 0
