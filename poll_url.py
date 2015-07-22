@@ -1,11 +1,14 @@
 #!/usr/bin/env python
 
 import sys
-import urllib
+import urllib2
 import time
 
 def url_status(url):
-    return urllib.urlopen(url).getcode()
+    try:
+        return urllib2.urlopen(url, None, 5).getcode()
+    except urllib2.HTTPError as e:
+        return e.code
 
 def test_url(url, timeout=60, interval=5):
     elapsed = 0
