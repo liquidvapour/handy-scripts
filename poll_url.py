@@ -10,7 +10,7 @@ def url_status(url):
 
 def test_url(url):
     elapsed = 0
-    while(elapsed < 10):
+    while(elapsed < 60):
         status = url_status(url)
         if status == 200:
             print "Successfully returned 200"
