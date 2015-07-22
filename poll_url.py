@@ -6,7 +6,7 @@ import time
 
 def url_status(url):
     try:
-        return urllib2.urlopen(url, None, 5).getcode()
+        return urllib2.urlopen(url).getcode()
     except urllib2.HTTPError as e:
         return e.code
 
